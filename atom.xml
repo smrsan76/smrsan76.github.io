@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>smrsan76 blog</title>
+  
+  <subtitle>smrsan76 official blog on github.io</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://smrsan76.github.io/"/>
+  <updated>2018-07-23T11:26:16.728Z</updated>
+  <id>https://smrsan76.github.io/</id>
+  
+  <author>
+    <name>SMRSAN</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How to change the root&#39;s password in kali live USB with persistent data</title>
+    <link href="https://smrsan76.github.io/2018/07/23/How-to-change-the-root-s-password-in-kali-live-USB-with-persistent-data/"/>
+    <id>https://smrsan76.github.io/2018/07/23/How-to-change-the-root-s-password-in-kali-live-USB-with-persistent-data/</id>
+    <published>2018-07-22T20:59:44.000Z</published>
+    <updated>2018-07-23T11:26:16.728Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>All of us want to be anonymous when we use kali linux.<br>Therefore we install kali on a live USB with or without persistent and encrypted<br>data. After that some of it’s primary data such as grub configurations need to be<br>editted but we couldn’t do that, becuase the bootable partition on the USB cannot<br>be changed.</p><p>To solve that problem, one way is to use ‘rufuse’ application on windows OS to<br>copy the image content on a USB and make it both changable and bootable. Doing<br>the following instructions will help you remove the annoying beep sound from<br>kali’s grub bootloader and such things.</p><p>The subject isn’t “How to make kali live USB editable” but it’s required to do<br>that before changing your root’s password in a kali live USB with persistent<br>data.</p><h1 id="Let’s-Do-That"><a href="#Let’s-Do-That" class="headerlink" title="Let’s Do That"></a>Let’s Do That</h1><p>First of all open this file with a text editor:<br>“/lib/live/config/0031-root-password”</p><p>There is a line which contains sth like this “usermod -p ‘{password hash}’ root”.</p><p>You need to just put the generated hash of your password instead of<br>‘{password hash}’ part (with quotes and without curly braces).</p><h1 id="How-to-get-password-hash"><a href="#How-to-get-password-hash" class="headerlink" title="How to get password hash"></a>How to get password hash</h1><ul><li>Open the terminal</li><li>Enter ‘passwd’ command (without quotes), and enter the new password</li><li>Open ‘/etc/shadow’ file with a text editor</li><li>Find the root’s password hash there.<br>(That’s like: “root:{password hash}:{etc}”…)</li><li>Copy the first part (password hash)</li><li>Paste it in the intended line of “/lib/live/config/0031-root-password” which<br>I described above.</li></ul><h1 id="That’s-it"><a href="#That’s-it" class="headerlink" title="That’s it"></a>That’s it</h1><p>Remember that the “passwd” command makes a temperary password hash in<br>“shadow” file, which will not be persistent but will immediately<br>applied.<br>However, if you change the password in “0031-root-password” file, that will<br>be applied after next boot, but it’s persistent.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;All of us want to be anonymous
+      
+    
+    </summary>
+    
+    
+      <category term="hack" scheme="https://smrsan76.github.io/tags/hack/"/>
+    
+      <category term="security" scheme="https://smrsan76.github.io/tags/security/"/>
+    
+      <category term="kali" scheme="https://smrsan76.github.io/tags/kali/"/>
+    
+      <category term="live-usb" scheme="https://smrsan76.github.io/tags/live-usb/"/>
+    
+      <category term="penetration" scheme="https://smrsan76.github.io/tags/penetration/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>How to Install Tor-Browser on Ubuntu v18.04 LTS (in iran)</title>
+    <link href="https://smrsan76.github.io/2018/05/17/How-to-Install-Tor-Browser-on-Ubuntu-v18-04-LTS-in-iran/"/>
+    <id>https://smrsan76.github.io/2018/05/17/How-to-Install-Tor-Browser-on-Ubuntu-v18-04-LTS-in-iran/</id>
+    <published>2018-05-17T18:13:04.000Z</published>
+    <updated>2018-07-22T19:54:30.534Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>In this post I’ll describe you how to install tor-browser on ubuntu v18.04 LTS (in iran).<br>I found so many websites which describe it for everyone except The Iranian people,<br>who have no access to important websites such as telegram, facebook, github (it’s git service), and etc.</p><p>These are The items I’ve found when I researched about this issue in google:</p><ul><li><a href="https://linuxconfig.org/how-to-install-tor-browser-in-ubuntu-18-04-bionic-beaver-linux" target="_blank" rel="noopener">https://linuxconfig.org/how-to-install-tor-browser-in-ubuntu-18-04-bionic-beaver-linux</a></li><li><a href="https://askubuntu.com/questions/1023722/how-do-i-install-tor-browser-on-ubuntu-17-10" target="_blank" rel="noopener">https://askubuntu.com/questions/1023722/how-do-i-install-tor-browser-on-ubuntu-17-10</a></li><li><a href="https://www.ubuntuupdates.org/package/tor/bionic/main/base/tor" target="_blank" rel="noopener">https://www.ubuntuupdates.org/package/tor/bionic/main/base/tor</a></li><li>etc.</li></ul><p><strong>But</strong> non of them was helpful in iran, because The <a href="https://www.torproject.org/" target="_blank" rel="noopener">torproject.org</a> website is filtered in our country.</p><h1 id="Instructions"><a href="#Instructions" class="headerlink" title="Instructions"></a>Instructions</h1><ol><li>Download &amp; install torbrowser-launcher by <a href="https://launchpad.net/~micahflee" target="_blank" rel="noopener">micahflee</a> (for getting the full list of download URLs)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:micahflee/ppa</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install torbrowser-launcher</span><br></pre></td></tr></table></figure></li><li>Open “Tor Browser Launcher” (search it in launcher)</li><li>Open “Mirror” list and use one of those URLs to download tor-browser<img src="/2018/05/17/How-to-Install-Tor-Browser-on-Ubuntu-v18-04-LTS-in-iran/Screenshot%20from%202018-05-17%2023-36-11.png" title="torbrowser-launcher"><blockquote><p>I personally used this <a href="https://tor.ybti.net/dist/torbrowser/8.0a7/tor-browser-linux64-8.0a7_en-US.tar.xz" target="_blank" rel="noopener">URL</a> for downloading tor-browser (version 8.0a7).</p></blockquote></li><li>After that, if you downloaded a (.tar.xz) file, use this command to extract it to a directory<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf /path/to/tarFile -C /path/to/destination/folder</span><br></pre></td></tr></table></figure></li><li>Then go and execute the file.<blockquote><p>In my case, the executable file and also it’s desktop entry was in this path</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/extraction/path/start-tor-browser.desktop</span><br></pre></td></tr></table></figure></blockquote></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;In this post I’ll describe you
+      
+    
+    </summary>
+    
+    
+      <category term="tor" scheme="https://smrsan76.github.io/tags/tor/"/>
+    
+      <category term="bypass" scheme="https://smrsan76.github.io/tags/bypass/"/>
+    
+      <category term="filtering" scheme="https://smrsan76.github.io/tags/filtering/"/>
+    
+      <category term="tor-browser" scheme="https://smrsan76.github.io/tags/tor-browser/"/>
+    
+      <category term="ubuntu" scheme="https://smrsan76.github.io/tags/ubuntu/"/>
+    
+      <category term="v18.04-LTS" scheme="https://smrsan76.github.io/tags/v18-04-LTS/"/>
+    
+  </entry>
+  
+</feed>
