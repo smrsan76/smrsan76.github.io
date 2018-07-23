@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://smrsan76.github.io/"/>
-  <updated>2018-07-23T11:26:16.728Z</updated>
+  <updated>2018-07-23T16:33:10.256Z</updated>
   <id>https://smrsan76.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Get tor proxy without any other proxies in banned countries</title>
+    <link href="https://smrsan76.github.io/2018/07/23/Get-tor-proxy-without-any-other-proxies-in-banned-countries/"/>
+    <id>https://smrsan76.github.io/2018/07/23/Get-tor-proxy-without-any-other-proxies-in-banned-countries/</id>
+    <published>2018-07-23T16:26:22.000Z</published>
+    <updated>2018-07-23T16:33:10.256Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="How-to-get-it-freely-forever"><a href="#How-to-get-it-freely-forever" class="headerlink" title="How to get it freely forever..?"></a>How to get it freely forever..?</h1><p>You can download/clone it from this<br><a href="https://gitlab.com/smrsan76/tor" target="_blank" rel="noopener">gitlab repository</a> and make<br>another public/private git repository for your self to have access<br>to tor, forever !</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;How-to-get-it-freely-forever&quot;&gt;&lt;a href=&quot;#How-to-get-it-freely-forever&quot; class=&quot;headerlink&quot; title=&quot;How to get it freely forever..?&quot;&gt;&lt;/a
+      
+    
+    </summary>
+    
+    
+      <category term="tor" scheme="https://smrsan76.github.io/tags/tor/"/>
+    
+      <category term="proxy" scheme="https://smrsan76.github.io/tags/proxy/"/>
+    
+      <category term="anonymous" scheme="https://smrsan76.github.io/tags/anonymous/"/>
+    
+      <category term="free" scheme="https://smrsan76.github.io/tags/free/"/>
+    
+      <category term="shortcut" scheme="https://smrsan76.github.io/tags/shortcut/"/>
+    
+  </entry>
   
   <entry>
     <title>How to change the root&#39;s password in kali live USB with persistent data</title>
